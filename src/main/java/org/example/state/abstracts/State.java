@@ -21,6 +21,8 @@ public abstract class State {
      * @param activityId 活动ID
      * @param currentStatus 当前状态
      * @return 执⾏结果
+     * 实际操作中 activityId可以类似于为订单号（也可以放置一个对象），根据订单号查询当前状态是否==currentStatus
+     *  if true 流转下一状态 false 不允许流转
      */
     public abstract String arraignment(String activityId, Enum<Status>
             currentStatus);
@@ -75,9 +77,6 @@ public abstract class State {
      * @param activityId 活动ID
      * @param currentStatus 当前状态
      * @return 执⾏结果
-     *
-     * 实际操作中 activityId可以类似于为订单号（也可以放置一个对象），根据订单号查询当前状态是否==currentStatus
-     * if true 流转下一状态
      */
     public abstract String doing(String activityId, Enum<Status>
             currentStatus);
